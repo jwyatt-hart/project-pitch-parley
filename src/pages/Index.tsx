@@ -118,7 +118,8 @@ const Index = () => {
         toast({
           title: "Project Approved but Risky",
           description: "The team is concerned about meeting the deadline.",
-          variant: "warning",
+          // Fixed: Changed 'warning' to 'default' to match the allowed variants
+          variant: "default",
         });
       }
     } else {
