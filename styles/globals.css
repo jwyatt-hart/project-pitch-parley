@@ -1,0 +1,214 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 220 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 10%;
+
+    --primary: 240 60% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 10% 94%;
+    --secondary-foreground: 240 25% 20%;
+
+    --muted: 240 10% 94%;
+    --muted-foreground: 240 10% 40%;
+
+    --accent: 240, 64%, 98%;
+    --accent-foreground: 240 25% 20%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 15% 90%;
+    --input: 240 15% 90%;
+    --ring: 240 60% 50%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 30% 8%;
+    --foreground: 220 20% 98%;
+
+    --card: 220 25% 12%;
+    --card-foreground: 220 20% 98%;
+
+    --popover: 220 25% 12%;
+    --popover-foreground: 220 20% 98%;
+
+    --primary: 240 60% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 20% 20%;
+    --secondary-foreground: 240 10% 90%;
+
+    --muted: 240 20% 20%;
+    --muted-foreground: 240 10% 70%;
+
+    --accent: 240 20% 18%;
+    --accent-foreground: 240 10% 90%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 20% 20%;
+    --input: 240 20% 20%;
+    --ring: 240 60% 60%;
+
+    --sidebar-background: 240 20% 12%;
+    --sidebar-foreground: 240 10% 90%;
+    --sidebar-primary: 240 60% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 20% 18%;
+    --sidebar-accent-foreground: 240 10% 90%;
+    --sidebar-border: 240 20% 20%;
+    --sidebar-ring: 240 60% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border antialiased;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  /* Pixel art rendering */
+  .pixel-art {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+  }
+
+  /* Glass morphism */
+  .glass {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 shadow-glass;
+  }
+
+  .glass-dark {
+    @apply bg-black/30 backdrop-blur-md border border-white/10 shadow-glass;
+  }
+
+  /* Neo morphism */
+  .neo {
+    @apply shadow-neo bg-corporate-100 dark:bg-corporate-700;
+  }
+
+  .neo-inset {
+    @apply shadow-neo-inset bg-corporate-200 dark:bg-corporate-800;
+  }
+
+  /* Hover effects */
+  .hover-lift {
+    @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  /* Button styles */
+  .btn {
+    @apply px-4 py-2 rounded-md font-medium transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:opacity-90 active:opacity-100 active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 active:bg-secondary;
+  }
+
+  .btn-success {
+    @apply bg-success text-white hover:bg-success-dark active:bg-success;
+  }
+
+  .btn-danger {
+    @apply bg-danger text-white hover:bg-danger-dark active:bg-danger;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent hover:bg-secondary active:bg-secondary/70;
+  }
+
+  /* Status indicators */
+  .status-pill {
+    @apply px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  /* Subtle pixel border */
+  .pixel-border {
+    @apply border border-corporate-300 dark:border-corporate-600;
+  }
+
+  /* Corporate dashboard card */
+  .dashboard-card {
+    @apply rounded-lg bg-white dark:bg-corporate-700 shadow-md border border-corporate-200 dark:border-corporate-600 p-4;
+  }
+
+  /* Scroll styling */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-corporate-300 dark:bg-corporate-600 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-corporate-400 dark:bg-corporate-500;
+  }
+}
+
+/* Animations */
+@layer utilities {
+  .animate-spin-slow {
+    animation: spin 3s linear infinite;
+  }
+  
+  .animate-hover {
+    animation: hover 3s ease-in-out infinite;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hover {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
